@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuchPoint</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#apps">Applications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <header id="home">
+        <div class="container">
+            <img src="logo-placeholder.png" alt="Company Logo" class="logo">
+            <h1>TuchPoint</h1>
+            <p>Providing top-notch management solutions for your business needs!</p>
+        </div>
+    </header>
+    <main>
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <h2>Why Choose Us?</h2>
+            <div class="features-container">
+                <div class="feature-item">
+                    <div class="icon">⚙️</div>
+                    <h3>High Efficiency</h3>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">✔️</div>
+                    <h3>Top Quality</h3>
+                </div>
+                <div class="feature-item">
+                    <div class="icon">💼</div>
+                    <h3>Professional Support</h3>
+                </div>
+            </div>
+        </section>
+        <!-- Applications Section -->
+        <section id="apps" class="applications">
+            <h2>Our Applications</h2>
+            <div class="app-grid">
+                <div class="app-item" onclick="showProductDetails('Product 1')">
+                    <img src="product1-placeholder.png" alt="Product 1">
+                    <h3>Sales Management</h3>
+                </div>
+                <div class="app-item" onclick="showProductDetails('Product 2')">
+                    <img src="product2-placeholder.png" alt="Product 2">
+                    <h3>Hospital Management</h3>
+                </div>
+                <div class="app-item" onclick="showProductDetails('Product 3')">
+                    <img src="product3-placeholder.png" alt="Product 3">
+                    <h3>School Management</h3>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2>Contact Us</h2>
+            <p>Email: contact@tuchpoint.com</p>
+            <p>Phone: +123-456-7890</p>
+            <p>Follow us: <a href="#">Instagram</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 TuchPoint. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
