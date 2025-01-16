@@ -1,76 +1,257 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TuchPoint</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <title>موقعي الشخصي</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* الوضع الليلي */
+        body.dark {
+            background: #121212;
+            color: #e0e0e0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            box-shadow: 5px 5px 15px #c8d6c5, -5px -5px 15px #ffffff;
+            border-radius: 0 0 20px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header.dark {
+            background: #1e1e1e;
+            box-shadow: 5px 5px 15px #000, -5px -5px 15px #333;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        header.dark .logo {
+            color: #76ff03;
+        }
+
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header.dark .nav a {
+            color: #bbb;
+        }
+
+        .nav a:hover {
+            color: #2e7d32;
+        }
+
+        header.dark .nav a:hover {
+            color: #76ff03;
+        }
+
+        .theme-toggle {
+            background: linear-gradient(145deg, #4caf50, #43a047);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        header.dark .theme-toggle {
+            background: linear-gradient(145deg, #333, #222);
+            color: #fff;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        section {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .achievement-item {
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 5px 5px 15px #c8d6c5, -5px -5px 15px #ffffff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            color: inherit;
+        }
+
+        body.dark .achievement-item {
+            background: linear-gradient(145deg, #333, #222);
+            box-shadow: 5px 5px 15px #000, -5px -5px 15px #333;
+            color: #e0e0e0;
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 10px 10px 20px #aaa, -10px -10px 20px #fff;
+        }
+
+        .achievement-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            box-shadow: 5px 5px 15px #c8d6c5, -5px -5px 15px #ffffff;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
+
+        .social a img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+        }
+
+        body.dark .social a {
+            background: linear-gradient(145deg, #333, #222);
+            box-shadow: 5px 5px 15px #000, -5px -5px 15px #333;
+        }
+
+        .social a:hover {
+            transform: scale(1.1);
+            box-shadow: 10px 10px 20px #aaa, -10px -10px 20px #fff;
+        }
+
+        footer {
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            color: #555;
+            box-shadow: 5px 5px 15px #c8d6c5, -5px -5px 15px #ffffff;
+        }
+
+        body.dark footer {
+            background: #1e1e1e;
+            color: #bbb;
+            box-shadow: 5px 5px 15px #000, -5px -5px 15px #333;
+        }
+    </style>
 </head>
 <body>
-    <nav class="sidebar">
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#apps">Applications</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <header id="home">
-        <div class="container">
-            <img src="logo-placeholder.png" alt="Company Logo" class="logo">
-            <h1>TuchPoint</h1>
-            <p>Providing top-notch management solutions for your business needs!</p>
-        </div>
+    <header>
+        <div class="logo">موقع شخصي</div>
+        <nav class="nav">
+            <a href="#about">تعريف</a>
+            <a href="#achievements">الإنجازات</a>
+            <a href="#contact">تواصل</a>
+        </nav>
+        <button class="theme-toggle" onclick="toggleTheme()">الوضع الليلي</button>
     </header>
-    <main>
-        <!-- Features Section -->
-        <section id="features" class="features">
-            <h2>Why Choose Us?</h2>
-            <div class="features-container">
-                <div class="feature-item">
-                    <div class="icon">⚙️</div>
-                    <h3>High Efficiency</h3>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">✔️</div>
-                    <h3>Top Quality</h3>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">💼</div>
-                    <h3>Professional Support</h3>
-                </div>
+
+    <section id="about" class="profile">
+        <img src="https://l.top4top.io/p_3303vs5961.jpg" alt="صورتي">
+        <h2>فيصل طالب علي العزاوي</h2>
+        <p>رئيس مراقبين المغيرة و الوريث الشرعي لأعدادية المغيرة.</p>
+    </section>
+
+    <section id="achievements">
+        <h2>الإنجازات</h2>
+        <div class="achievements">
+            <div class="achievement-item">
+                <img src="https://i.top4top.io/p_33036jggf1.png" alt="إنجاز 1">
+                <p>حاصل على رتبة لواء ركن في المراقبة</p>
             </div>
-        </section>
-        <!-- Applications Section -->
-        <section id="apps" class="applications">
-            <h2>Our Applications</h2>
-            <div class="app-grid">
-                <div class="app-item" onclick="showProductDetails('Product 1')">
-                    <img src="product1-placeholder.png" alt="Product 1">
-                    <h3>Sales Management</h3>
-                </div>
-                <div class="app-item" onclick="showProductDetails('Product 2')">
-                    <img src="product2-placeholder.png" alt="Product 2">
-                    <h3>Hospital Management</h3>
-                </div>
-                <div class="app-item" onclick="showProductDetails('Product 3')">
-                    <img src="product3-placeholder.png" alt="Product 3">
-                    <h3>School Management</h3>
-                </div>
+            <div class="achievement-item">
+                <img src="https://e.top4top.io/p_33030vwjw1.png" alt="إنجاز 2">
+                <p>حاصل على لقب ملك المرشحات من طلبة السادس</p>
             </div>
-        </section>
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <h2>Contact Us</h2>
-            <p>Email: contact@tuchpoint.com</p>
-            <p>Phone: +123-456-7890</p>
-            <p>Follow us: <a href="#">Instagram</a></p>
-        </section>
-    </main>
+            <div class="achievement-item">
+                <img src="https://l.top4top.io/p_33036ig7d1.png" alt="إنجاز 3">
+                <p>الوريث الشرعي لاعدادية المغيرة</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>تواصل معي</h2>
+        <div class="social">
+            <a href="https://t.me/wnwvv" target="_blank">
+                <img src="https://i.top4top.io/p_33034pfqq1.png" alt="Telegram">
+            </a>
+            <a href="https://www.instagram.com/6.wkg?igsh=MTJvNThzdDh6enVqZQ==" target="_blank">
+                <img src="https://k.top4top.io/p_33038tcip1.png" alt="Instagram">
+            </a>
+        </div>
+    </section>
+
     <footer>
-        <p>© 2024 TuchPoint. All Rights Reserved.</p>
+        <p>© 2025 جميع الحقوق محفوظة. تصميم وتطوير بواسطة نذير براء منذر.</p>
     </footer>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+            document.querySelector('header').classList.toggle('dark');
+        }
+    </script>
 </body>
 </html>
