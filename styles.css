@@ -1,0 +1,55 @@
+body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    background: #0f172a;
+    color: #f1f5f9;
+    text-align: center;
+}
+
+.screen {
+    padding: 40px 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #1d4ed8;
+    color: #fff;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.player-input {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.player-input input {
+    padding: 10px;
+    font-size: 1rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.warning {
+    color: #fbbf24;
+}
+
+.role-card {
+    margin-top: 20px;
+    padding: 20px;
+    background: #334155;
+    border-radius: 12px;
+}
